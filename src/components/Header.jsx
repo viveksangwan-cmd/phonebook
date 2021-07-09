@@ -4,9 +4,15 @@ class Header extends Component {
     return (
       <>
         <div className="header">
-          <h1 className="header-options">My Contacts</h1>
-          <h1 className="header-options">Favorites</h1>
-          <h1 className="header-options">Emergancy</h1>
+          <h1 className="header-options" id="heading">
+            My Contacts
+          </h1>
+          <h1 className="header-options" id="heading">
+            Favorites
+          </h1>
+          <h1 className="header-options" id="heading">
+            Emergancy
+          </h1>
         </div>
       </>
     );

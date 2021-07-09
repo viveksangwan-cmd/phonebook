@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
 :root {
   --primary-text-color: black;
   --secondary-text-color: #af7a6d;
@@ -8,13 +9,15 @@
   --footer-background-color: #6baa75;
 
   --primary-font: "Roboto Slab", serif;
+  --secondary-font: "Roboto", sans-serif;
 }
 
 .header {
   height: 10vh;
-  background-color: var(--header-background-color);
   border-radius: 15px;
+  background-color: var(--header-background-color);
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   /* padding: 10px; */
 }
@@ -22,28 +25,46 @@
   font-size: 22px;
   margin: 10px;
   color: var(--primary-text-color);
-  font-family: var(--primary-font);
 }
 
 .wrapper {
-  display: flex;
   border-radius: 15px;
-  margin: 5px;
-  background-color: var(--wrapper-background-color);
+  display: flex;
 }
 
 .wrapper > * {
-  padding: 5px;
-  flex: 2;
-  color: var(--primary-text-color);
   min-height: 90vh;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  color: var(--primary-text-color);
+  background-color: var(--wrapper-background-color);
+  flex: 2;
 }
 .search {
   flex: 1;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+}
+.contact {
+  margin: 10px;
+  border: 3px dotted goldenrod;
+  border-radius: 15px;
 }
 
 .footer {
   border-radius: 15px;
   padding: 5px;
   background-color: var(--footer-background-color);
+}
+
+#heading {
+  font-family: var(--primary-font);
+}
+
+#subheading {
+  font-family: var(--secondary-font);
 }

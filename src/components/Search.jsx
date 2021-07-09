@@ -4,7 +4,12 @@ class Search extends Component {
   render() {
     return (
       <div className="search">
-        <h1>Search</h1>
+        <h1 id="heading">Search</h1>
+        <input type="text" placeholder="Enter name."></input>
+        <p>Enter Name</p>
+        <input type="text" placeholder="Enter phone number."></input>
+        <p>Enter Phone Number</p>
+        <button type="submit">Search</button>
       </div>
     );
   }
