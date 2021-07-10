@@ -49,10 +49,31 @@
   display: flex;
   flex-direction: column;
 }
+
+.contacts #contacts-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
 .contact {
   margin: 10px;
   border: 3px dotted goldenrod;
   border-radius: 15px;
+  display: flex;
+}
+
+.contact > * {
+  flex: 2;
+  margin: 8px;
+}
+.contact #contact-info {
+  flex: 1;
+  display: flex;
+  font-family: var(--secondary-font);
+}
+.contact #contact-info > * {
+  margin: 5px;
 }
 
 .footer {
@@ -67,4 +88,11 @@
 
 #subheading {
   font-family: var(--secondary-font);
+}
+
+.contacts #contacts-header #new-contact {
+  border: 3px solid white;
+  border-radius: 50px;
+  font-family: var(--secondary-font);
+  color: antiquewhite;
 }

@@ -1,18 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import Contact from "./contact.jsx";
-import { contactsData } from "../data/contactsData.js";
 
-class Contacts extends Component {
-  render() {
-    return (
-      <div className="contacts">
+const Contacts = ({ contacts }) => {
+  return (
+    <div className="contacts">
+      <div id="contacts-header">
         <h1 id="heading">Contacts</h1>
-        {contactsData.map((c) => (
-          <Contact key={c.number} contact={c} />
-        ))}
+        <h1 id="heading new-contact">+ New Contact</h1>
       </div>
-    );
-  }
-}
+      {contacts.map((c) => (
+        <Contact key={c.number} contact={c} />
+      ))}
+    </div>
+  );
+};
 
 export default Contacts;
