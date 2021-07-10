@@ -24,16 +24,17 @@
 .header > * {
   font-size: 22px;
   margin: 10px;
+  align-items: center;
   color: var(--primary-text-color);
 }
 
 .wrapper {
   border-radius: 15px;
   display: flex;
+  flex-direction: column;
 }
 
 .wrapper > * {
-  min-height: 90vh;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
@@ -43,8 +44,18 @@
 }
 .search {
   flex: 1;
+  display: flex;
+}
+.search > * {
+  flex: 2;
+  align-items: center;
+  /* justify-content: center; */
 }
 
+.search #heading {
+  flex: 1;
+  display: flex;
+}
 .contacts {
   display: flex;
   flex-direction: column;
@@ -90,9 +101,15 @@
   font-family: var(--secondary-font);
 }
 
-.contacts #contacts-header #new-contact {
-  border: 3px solid white;
-  border-radius: 50px;
-  font-family: var(--secondary-font);
-  color: antiquewhite;
+#no-contacts {
+  font-weight: bold;
+  font-style: italic;
+  align-self: center;
+}
+
+#new-contact {
+  font-weight: bold;
+  font-style: italic;
+  align-self: center;
+  font-weight: 100;
 }

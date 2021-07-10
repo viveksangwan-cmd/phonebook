@@ -8,14 +8,20 @@ import { contactsData } from "./data/contactsData.js";
 function App() {
   const [category, setcategory] = useState("mycontacts");
   const [contacts, setContacts] = useState([]);
+  const [search, setSearch] = useState("");
 
   const handelCategory = (category) => {
     setcategory(category);
+    setSearch("");
+  };
+
+  const handelSearch = (str) => {
+    setSearch(str);
   };
 
   useEffect(() => {
     // Fetch data
-    const data = contactsData;
+    let data = contactsData;
 
     // Function for filtering data
     const filterData = (d) => {
@@ -23,20 +29,36 @@ function App() {
       return false;
     };
 
-    // setContacts based on category
-    if (category === "mycontacts") {
-      setContacts(data);
-      return;
+    // setContacts based on category and then filter
+
+    if (category !== "mycontacts") {
+      data = data.filter((d) => filterData(d));
     }
-    const currentData = data.filter((d) => filterData(d));
-    setContacts(currentData);
-  }, [category]);
+    if (search !== "") {
+      const query = search.toLowerCase().trim();
+      if (query[0] <= "9" && query[0] >= "0") {
+        data = data.filter(({ number }) => {
+          return number.startsWith(query);
+        });
+      } else if (
+        (query[0] >= "a" && query[0] <= "z") ||
+        (query[0] >= "A" && query[0] <= "Z")
+      ) {
+        data = data.filter(({ name }) => {
+          name = name.toLowerCase().trim();
+          return name.startsWith(query);
+        });
+      }
+    }
+    const displayContact = data;
+    setContacts(displayContact);
+  }, [category, search]);
 
   return (
     <React.Fragment>
       <Header handelCategory={handelCategory} />
       <div className="wrapper">
-        <Search />
+        <Search value={search} onChange={handelSearch} />
         <Contacts contacts={contacts} />
       </div>
       <Footer />
